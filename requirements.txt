@@ -1,0 +1,62 @@
+# EntroPath — reproduction environment (Python 3.11)
+#
+# The stack below reproduces EntroPath, the synthetic benchmarks, the ablations,
+# the PyPI baselines (PHATE, UMAP, Diffusion Maps), the evaluation metrics, and
+# the single-cell results. It installs cleanly on Linux/macOS/Windows.
+#     pip install -e .
+#     pip install -r requirements.txt
+#
+# The DTNE and HeatGeo baseline comparisons need extra, non-PyPI setup and are
+# listed separately at the bottom (see README → Reproduce the paper).
+
+# numerical core / plotting
+numpy==2.4.4
+scipy==1.15.3
+scikit-learn==1.8.0
+pandas==2.3.3
+matplotlib==3.10.8
+seaborn==0.13.2
+
+# baselines (PyPI) + PHATE graph support
+umap-learn==0.5.11
+phate==2.0.0
+pydiffmap==0.2.0.1
+graphtools==2.1.0
+
+# embedding-quality metrics
+zadu==0.4.1
+faiss-cpu==1.13.2      # pulled by zadu unbounded; held at the paper version
+
+# single-cell datasets
+scanpy==1.11.5
+anndata==0.12.11
+networkx==2.8.6
+
+# clustering benchmark
+hdbscan==0.8.42
+
+# notebook runtime
+jupyterlab==4.5.6
+notebook==7.5.3
+ipykernel==7.2.0
+ipywidgets==8.1.8
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OPTIONAL — DTNE and HeatGeo baseline comparisons (NOT installed by this file).
+# Needed only for the DTNE / HeatGeo rows; not required for EntroPath's own
+# results or any baseline above. Neither installs cleanly from upstream on a
+# modern toolchain, so each needs a small one-line packaging fix applied by hand.
+#
+# DTNE (github.com/statway/DTNE): add to its pyproject.toml so setuptools can
+#   discover the package, then `pip install .`:
+#       [tool.setuptools.packages.find]
+#       include = ["dtne*"]
+#
+# HeatGeo (github.com/KrishnaswamyLab/HeatGeo): in setup.py, replace
+#       from pkg_resources import parse_version
+#   with
+#       from packaging.version import parse as parse_version
+#   then `pip install --no-deps .` (its metadata pins numpy 1.23 / sklearn 1.2).
+#   HeatGeo also needs the compiled s_gd2 extension, which is architecture-
+#   specific (no Linux/py3.11 wheel; painful on Apple Silicon).
+# ─────────────────────────────────────────────────────────────────────────────

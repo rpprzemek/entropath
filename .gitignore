@@ -1,0 +1,71 @@
+# Virtual environments
+.venv/
+.venv_test/
+venv/
+env/
+ENV/
+
+# Python cache and bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Distribution / packaging
+*.egg-info/
+.eggs/
+build/
+dist/
+*.egg
+
+# Setuptools and pip temporary files
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing and linting caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Environment variables
+.env
+.env.example
+
+# Project data & artifacts
+data/*
+!data/README.md
+notebooks/**/data/
+*.npy
+*.npz
+*.pkl
+*.h5
+cache/
