@@ -110,7 +110,7 @@ $T$ is stochastic; $\tilde{A}$ is symmetric and similar to $T$.
 
 Select the diffusion time $k$ as the knee of the von Neumann entropy curve of $T^t$:
 
-$$k = \arg\text{knee}\bigl\{\mathcal{S}_\text{vN}(T^t)\bigr\}_{t=1}^{t_{\max}}$$
+$$k = \arg\text{knee}\{\mathcal{S}_\text{vN}(T^t)\}_{t=1}^{t_{\max}}$$
 
 This follows the von Neumann entropy knee criterion used by PHATE, here applied to the MERW operator.
 
